@@ -1,7 +1,7 @@
 /**
  * Fifteen Puzzle Game
  * 
- * This game is Assignment 5 from CPS 353
+ * This game is for Assignment 5 from CPS 353
  * The game consists of a 4x4 grid, with 15 numbered tiles and one blank space
  * The objective is to arrange the tiles into numerical order
  * 
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         /**
-         * Moves a square
+         * Move a square
          * @param {HTMLElement} div - The square to move
          * @param {number} row - The target's row
          * @param {number} col - The target's column
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         /**
-         * Finds the square
+         * Find the square
          * @param {number} row - The target's row
          * @param {number} col - The target's col
          * @returns {HTMLElement} The square at the given row and col
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         /**
-         * Checks if a square can move to the empty space
+         * Check if a square can move to the empty space
          * @param {number} row - The target's row
          * @param {number} col - The target's column
          * @returns {boolean} True if the square can move, otherwise false.
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         /**
-         * Sets up the initial state of the board with squares in their correct positions.
+         * Set up the initial state of the board with squares in their correct positions.
          */
         setupGame() {
             let index = 0;
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         /**
-         * Adds click and hover event listeners to the squares
+         * Add click and hover event listeners to the squares
          */
         addEventListeners() {
             for (let square of this.squares) {

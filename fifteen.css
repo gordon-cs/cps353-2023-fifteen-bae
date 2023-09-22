@@ -27,7 +27,7 @@ body {
     align-items: center;
   }
 
-#puzzlearea div:hover {
+#puzzlearea div.hovered {
     border-color: red;
     color: red;
 }
