@@ -102,8 +102,42 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             }
         }
+
+        /**
+         * Randomly move the empty square
+         */ 
+        RandomMoveEmptySquare() {
+            let moves = [];
+            // If the empty square is not in the top, move   
+            if (this.emptyRow > 0) moves.push({ row: this.emptyRow - 1, col: this.emptyCol });
+            // If the empty square is not in the bottom, move 
+            if (this.emptyRow < 3) moves.push({ row: this.emptyRow + 1, col: this.emptyCol });
+            // If the empty square is not in the leftmost, move 
+            if (this.emptyCol > 0) moves.push({ row: this.emptyRow, col: this.emptyCol - 1 });
+            // If the empty square is not in the rightmost, move 
+            if (this.emptyCol < 3) moves.push({ row: this.emptyRow, col: this.emptyCol + 1 });
+            // Return one from all the valid possibilities
+            return moves[Math.floor(Math.random() * moves.length)];
+        }
+ 
+        /**
+         * Shuffle the puzzle board
+         */ 
+        shuffleBoard(movesCount) {
+            for (let i = 0; i < movesCount; i++) {
+                let randomMove = this.RandomMoveEmptySquare();
+                let square = this.findSquare(randomMove.row, randomMove.col);
+                this.moveSquare(square, this.emptyRow, this.emptyCol);
+                [this.emptyRow, this.emptyCol] = [randomMove.row, randomMove.col];
+            }
+        }
+        
     }
 
     // Initialize the game
-    new FifteenPuzzle();
+    let game = new FifteenPuzzle();
+    // Shuffle
+    document.getElementById("shufflebutton").addEventListener("click", () => {
+        game.shuffleBoard(100);
+    });
 });
